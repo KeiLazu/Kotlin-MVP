@@ -8,10 +8,11 @@ import dagger.android.AndroidInjection
  *  Created by Kei Lazu on 8/9/2018
  *  check https://github.com/KeiLazu for more
  */
-abstract class BaseActivity : AppCompatActivity(), MvpView {
+abstract class BaseActivity : AppCompatActivity(), MvpView, BaseFragment.Callback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        performDI()
     }
 
     private fun performDI() = AndroidInjection.inject(this)
